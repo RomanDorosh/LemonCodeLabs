@@ -1,4 +1,4 @@
-## Ejercicios CLI
+## Ejercicios LINUX
 
 ### 1. Crea mediante comandos de bash la siguiente jerarquía de ficheros y directorios.
 
