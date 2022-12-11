@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: monolithss
+  namespace: monolith
+spec:
+  serviceName: monolithsvc
+  selector:
+    matchLabels:
+      app: monolithss
+  template:
+    metadata:
+      labels:
+        app: monolithss
+    spec:
+      volumes:
+      - name: external
+        persistentVolumeClaim:
+          claimName: monolithpvc
+      containers:
+      - image: postgres:10.4
+        name: postgres
+        ports:
+        - containerPort: 5432
+        envFrom:
+        - configMapRef:
+            name: monolithcmbd
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: external

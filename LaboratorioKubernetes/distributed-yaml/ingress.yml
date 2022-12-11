@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  namespace: distributed
+spec:
+  rules:
+    - host: distributed.info
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: todo-api-svc
+                port: 
+                  number: 3000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: todo-front-svc
+                port:
+                  number: 80

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: monolithsvc
+  namespace: monolith
+spec:
+  selector:
+    app: monolithss
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
