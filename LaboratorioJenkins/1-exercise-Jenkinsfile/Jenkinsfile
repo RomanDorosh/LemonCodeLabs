@@ -10,14 +10,23 @@ pipeline {
                 '''
             }
         }
+        stage ('demo-test') {
+            steps {
+                echo "Current directory is $PWD"
+            }
+        }
         stage ('Compile') {
             steps {
-                sh './gradlew compileJava'
+                dir('../jenkins-resources/calculator') {
+                    sh './gradlew compileJava'
+                }
             }
         }
         stage ('Unit Test') {
             steps {
-                sh './gradlew test'
+                dir('../jenkins-resources/calculator') {
+                    sh './gradlew test'
+                }
             }
         }
     }
