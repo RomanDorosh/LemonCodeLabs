@@ -13,14 +13,14 @@ pipeline {
         stage ('demo-test') {
             steps {
                 dir('./calculator') {
-                    echo "Current directory is $PWD"
+                    echo "Files in current directory is $(ls)"
                 }
                 
             }
         }
         stage ('Compile') {
             steps {
-                dir('../jenkins-resources/calculator') {
+                dir('./LaboratorioJenkins/jenkins-resources/calculator') {
                     sh './gradlew compileJava'
                 }
             }
