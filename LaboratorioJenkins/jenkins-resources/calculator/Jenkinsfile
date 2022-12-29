@@ -10,6 +10,11 @@ pipeline {
                 '''
             }
         }
+        stage ('Echo Test') {
+            steps {
+                echo "build number is ${BUILD_NUMBER}"
+            }
+        }
         stage ('Unit Test') {
             steps {
                 sh 'gradlew test'
