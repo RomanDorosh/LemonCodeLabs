@@ -8,12 +8,19 @@ pipeline {
     stages {
         stage ('Compile') {
             steps {
-                sh 'gradlew compileJava'
+                dir("$WORKSPACE/LaboratorioJenkins/jenkins-resources/calculator") {
+                    sh '''
+                    chmod +x gradlew
+                    ./gradlew compileJava
+                    '''
+                }
             }
         }
         stage ('Unit Test') {
             steps {
-                sh 'gradlew test'
+                dir("$WORKSPACE/LaboratorioJenkins/jenkins-resources/calculator") {
+                    sh './gradlew test'
+                }
             }
         }
     }
