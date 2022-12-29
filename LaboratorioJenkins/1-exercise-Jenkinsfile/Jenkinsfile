@@ -22,7 +22,7 @@ pipeline {
         }
         stage ('Unit Test') {
             steps {
-                dir('../jenkins-resources/calculator') {
+                dir('./LaboratorioJenkins/jenkins-resources/calculator') {
                     sh './gradlew test'
                 }
             }
