@@ -10,18 +10,13 @@ pipeline {
                 '''
             }
         }
-        stage ('demo-test') {
-            steps {
-                dir('./calculator') {
-                    echo "The workspace is $WORKSPACE"
-                }
-                
-            }
-        }
         stage ('Compile') {
             steps {
                 dir('./LaboratorioJenkins/jenkins-resources/calculator') {
-                    sh './gradlew compileJava'
+                    sh '''
+                    chmod +x gradlew
+                    ./gradlew compileJava
+                    '''
                 }
             }
         }
