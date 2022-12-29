@@ -1,0 +1,20 @@
+pipeline {
+    agent {
+        docker {
+            image 'gradle:6.6.1-jre14-openj9'
+        }
+    }
+
+    stages {
+        stage ('Compile') {
+            steps {
+                sh 'gradlew compileJava'
+            }
+        }
+        stage ('Unit Test') {
+            steps {
+                sh 'gradlew test'
+            }
+        }
+    }
+}
