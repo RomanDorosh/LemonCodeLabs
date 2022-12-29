@@ -2,14 +2,22 @@ pipeline {
     agent any
 
     stages {
+        stage ('Audit tools') {
+            steps {
+                sh '''
+                    java -version
+                    gradle -v
+                '''
+            }
+        }
         stage ('Compile') {
             steps {
-                sh 'gradlew compileJava'
+                sh './gradlew compileJava'
             }
         }
         stage ('Unit Test') {
             steps {
-                sh 'gradlew test'
+                sh './gradlew test'
             }
         }
     }
