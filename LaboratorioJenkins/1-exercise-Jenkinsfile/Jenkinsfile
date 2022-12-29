@@ -12,7 +12,10 @@ pipeline {
         }
         stage ('demo-test') {
             steps {
-                echo "Current directory is $PWD"
+                dir('./calculator') {
+                    echo "Current directory is $PWD"
+                }
+                
             }
         }
         stage ('Compile') {
