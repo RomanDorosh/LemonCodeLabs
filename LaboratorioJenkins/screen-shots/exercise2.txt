@@ -1,0 +1,52 @@
+Started by user roman
+Obtained LaboratorioJenkins/2-exercise-Jenkinsfile/Jenkinsfile from git https://github.com/RomanDorosh/LemonCodeLabs.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/exercise2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/exercise2/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RomanDorosh/LemonCodeLabs.git # timeout=10
+Fetching upstream changes from https://github.com/RomanDorosh/LemonCodeLabs.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/RomanDorosh/LemonCodeLabs.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision a160f820ed8dedca2364c6f05d48bdfc2d0ea4bf (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a160f820ed8dedca2364c6f05d48bdfc2d0ea4bf # timeout=10
+Commit message: "Update Jenkinsfile for second exercise"
+ > git rev-list --no-walk a160f820ed8dedca2364c6f05d48bdfc2d0ea4bf # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . gradle:6.6.1-jre14-openj9
+/var/jenkins_home/workspace/exercise2@tmp/durable-41615b66/script.sh: 1: docker: not found
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker pull gradle:6.6.1-jre14-openj9
+/var/jenkins_home/workspace/exercise2@tmp/durable-c75e7d3d/script.sh: 1: docker: not found
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 127
+Finished: FAILURE

@@ -1,0 +1,97 @@
+Started by user roman
+Obtained LaboratorioJenkins/1-exercise-Jenkinsfile/Jenkinsfile from git https://github.com/RomanDorosh/LemonCodeLabs.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/exercise1
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/exercise1/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RomanDorosh/LemonCodeLabs.git # timeout=10
+Fetching upstream changes from https://github.com/RomanDorosh/LemonCodeLabs.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/RomanDorosh/LemonCodeLabs.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 630a67b18f7dd5b14a94fb9ccbd6101e66b80235 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 630a67b18f7dd5b14a94fb9ccbd6101e66b80235 # timeout=10
+Commit message: "Update Jenkinsfile"
+ > git rev-list --no-walk 66115ba1cb616cb16e390541c599385a1d467658 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Audit tools)
+[Pipeline] sh
++ java -version
+openjdk version "11.0.17" 2022-10-18
+OpenJDK Runtime Environment Temurin-11.0.17+8 (build 11.0.17+8)
+OpenJDK 64-Bit Server VM Temurin-11.0.17+8 (build 11.0.17+8, mixed mode)
++ gradle -v
+
+------------------------------------------------------------
+Gradle 6.6.1
+------------------------------------------------------------
+
+Build time:   2020-08-25 16:29:12 UTC
+Revision:     f2d1fb54a951d8b11d25748e4711bec8d128d7e3
+
+Kotlin:       1.3.72
+Groovy:       2.5.12
+Ant:          Apache Ant(TM) version 1.10.8 compiled on May 10 2020
+JVM:          11.0.17 (Eclipse Adoptium 11.0.17+8)
+OS:           Linux 5.15.49-linuxkit aarch64
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Compile)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/exercise1/LaboratorioJenkins/jenkins-resources/calculator
+[Pipeline] {
+[Pipeline] sh
++ chmod +x gradlew
++ ./gradlew compileJava
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :compileJava UP-TO-DATE
+
+BUILD SUCCESSFUL in 2s
+1 actionable task: 1 up-to-date
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Unit Test)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/exercise1/LaboratorioJenkins/jenkins-resources/calculator
+[Pipeline] {
+[Pipeline] sh
++ ./gradlew test
+> Task :compileJava UP-TO-DATE
+> Task :processResources
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :test
+
+BUILD SUCCESSFUL in 7s
+4 actionable tasks: 3 executed, 1 up-to-date
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
